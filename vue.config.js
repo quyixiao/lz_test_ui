@@ -13,7 +13,6 @@ module.exports = {
   devServer: {
     proxy: {
       '/lt-web/': {
-        //target: 'https://tlzdoc.ldxinyong.com', // 测试环境
         target: 'http://127.0.0.1:7776', // 本地测试环境
         changeOrigin: true
       }
