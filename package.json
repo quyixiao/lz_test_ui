@@ -1,0 +1,75 @@
+{
+  "name": "confluence-doc",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "npm run prettier && npm run lint:fix",
+    "prettier": "prettier -c --write ./src",
+    "lint:fix": "eslint --fix --ext .js,.vue ./src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "prettier -c --write ./src",
+      "eslint --fix --ext ./src"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.14.1",
+    "js-base64": "^3.6.0",
+    "mockjs": "^1.1.0",
+    "normalize.css": "^8.0.1",
+    "sortablejs": "^1.13.0",
+    "vue": "^2.6.11",
+    "vue-cookie": "^1.1.4",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.5.1",
+    "wangeditor": "^3.1.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.0",
+    "@vue/cli-plugin-eslint": "^4.5.0",
+    "@vue/cli-service": "^4.5.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.20.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^7.7.0",
+    "husky": "^4.3.8",
+    "less": "^4.0.0",
+    "less-loader": "^7.2.1",
+    "lint-staged": "^10.5.4",
+    "prettier": "2.2.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

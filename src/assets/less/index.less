@@ -1,0 +1,79 @@
+html,
+body {
+  height: 100%;
+}
+
+.content {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+@themeColor: #205081;
+
+.el-scrollbar__wrap {
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+
+#editor.edit {
+  display: block !important;
+  left: 0 !important;
+  right: auto !important;
+  z-index: 2 !important;
+}
+#edui1 {
+  width: calc(100% - 2px) !important;
+}
+#edui1_iframeholder {
+  width: calc(100% - 2px) !important;
+}
+#edui1_bottombar {
+  display: none;
+}
+
+.el-select-dropdown.header {
+  .el-select-dropdown__wrap {
+    margin-bottom: 0 !important;
+  }
+}
+
+.el-radio__input.is-checked .el-radio__inner,
+.el-button--primary {
+  background: @themeColor;
+  border-color: @themeColor;
+}
+.el-radio__input.is-checked + .el-radio__label {
+  color: @themeColor;
+}
+
+.el-button:focus:not(.el-button--default),
+.el-button:hover:not(.el-button--default) {
+  color: #fff;
+}
+
+.el-button:focus.el-button--text,
+.el-button:hover.el-button--text {
+  color: #66b1ff;
+}
+
+.el-button--default:hover {
+  color: @themeColor;
+}
+
+.el-button--primary:focus,
+.el-button--primary:hover {
+  background: @themeColor;
+  border-color: @themeColor;
+  color: #fff;
+}
+.el-button--text:focus,
+.el-button--text:hover {
+  color: #66b1ff;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: @themeColor;
+  border-color: @themeColor;
+}
