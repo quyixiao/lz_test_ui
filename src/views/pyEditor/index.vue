@@ -151,14 +151,10 @@ export default {
       this.loading = true
       apiTestPort({ code: this.editor.getValue() }).then(res => {
         this.loading = false
-        if (res.code === 1000) {
-          this.$message({ type: 'success', message: '测试成功' })
-          this.testResult = res.data.reduce((total, item) => {
-            return (total += `<p style="color: ${item.color}">${item.content}</p>`)
-          }, '')
-        } else {
-          this.$message.error(res.msg)
-        }
+        this.$message({ type: 'success', message: '测试成功' })
+        this.testResult = res.data.reduce((total, item) => {
+          return (total += `<p style="color: ${item.color}">${item.content}</p>`)
+        }, '')
       })
     },
     onSubmit() {

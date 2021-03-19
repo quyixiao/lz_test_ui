@@ -28,7 +28,7 @@
           </el-badge>
         </template>
       </el-table-column>
-      <el-table-column prop="groupRefreshNum" label="引用次数" align="center">
+      <el-table-column prop="groupRefreshNum" label="被组引用次数" align="center">
       </el-table-column>
       <el-table-column prop="realName" label="创建者"> </el-table-column>
       <el-table-column label="操作" width="100">

@@ -358,7 +358,7 @@ export default {
           }
         })
       } else {
-        apiTestPort({ id: val.val.id }).then(res => {
+        apiTestPort({ id: val.val.interfaceId }).then(res => {
           if (res.code === 1000) {
             this.$message({ type: 'success', message: '测试成功' })
             const result = res.data.reduce((total, item) => {
