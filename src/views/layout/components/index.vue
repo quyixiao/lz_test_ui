@@ -3,9 +3,10 @@
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :show-timeout="200"
-        :default-active="$route.path"
+        :default-active="$route.fullPath"
         active-text-color="#333333"
         text-color="#3b73af"
+        router
         background-color="#f5f5f5"
         class="el-menu-wrap"
       >
@@ -36,6 +37,9 @@ export default {
   border-right: none;
   &.el-menu {
     border-right: none;
+    .is-active {
+      font-weight: bold;
+    }
   }
 }
 .el-scrollbar {

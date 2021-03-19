@@ -2,32 +2,26 @@
   <div class="sidebarContent">
     <!--只有一级菜单-->
     <template v-if="!item.list || item.list.length === 0">
-      <router-link :to="item.path" style="display: block; width: 100%">
-        <el-menu-item
-          :index="item.path"
-          :class="{ 'nosubmenu-arrow': !isNest }"
-          @click="handleChooseMenu(item)"
-        >
-          <template slot="title">
-            <span slot="title">{{ item.title }}</span>
-          </template>
-        </el-menu-item>
-      </router-link>
+      <el-menu-item
+        :index="item.path"
+        :class="{ 'nosubmenu-arrow': !isNest }"
+        @click="handleChooseMenu(item)"
+      >
+        <template slot="title">
+          <span slot="title">{{ item.title }}</span>
+        </template>
+      </el-menu-item>
     </template>
 
     <!--二级菜单-->
-    <el-submenu v-else :index="String(item.id)">
+    <el-submenu v-else :index="item.path">
       <template slot="title">
         <router-link
           slot="title"
           :to="item.path"
           style="display: block; width: 100%"
         >
-          <span
-            style="display: block; width: 100%"
-            @click="handleChooseMenu(item)"
-            >{{ item.title }}</span
-          >
+          <span @click="handleChooseMenu(item)">{{ item.title }}</span>
         </router-link>
       </template>
 
@@ -40,13 +34,16 @@
           :base-path="child.path"
           class="nest-menu"
         />
-        <router-link v-else :to="child.path" :key="child.title">
-          <el-menu-item :index="child.path" @click="handleChooseMenu(child)">
-            <template slot="title">
-              <span slot="title">{{ child.title }}</span>
-            </template>
-          </el-menu-item>
-        </router-link>
+        <el-menu-item
+          v-else
+          :key="child.title"
+          :index="child.path"
+          @click="handleChooseMenu(child)"
+        >
+          <template slot="title">
+            <span slot="title">{{ child.title }}</span>
+          </template>
+        </el-menu-item>
       </template>
     </el-submenu>
   </div>
@@ -100,7 +97,8 @@ export default {
   }
   .el-menu-item,
   .el-submenu__title,
-  .el-submenu__title .el-submenu .el-menu-item {
+  .el-submenu__title .el-submenu .el-menu-item,
+  .el-submenu .el-menu-item {
     height: 40px;
     line-height: 40px;
   }

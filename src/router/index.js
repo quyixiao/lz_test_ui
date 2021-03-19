@@ -124,7 +124,6 @@ router.beforeEach(async (to, from, next) => {
         isAddDynamicRoutes = true
         mutations.updateMenuList(handleMenuList(res.data.list))
         parentRoute[1].children.push(...handleRoutes(res.data.list))
-        console.log(333, parentRoute)
         router.addRoutes(parentRoute)
         next({ ...to })
         apiGetSpaceList().then(res => {
@@ -180,9 +179,9 @@ function handleRoutes(list) {
         console.error(e)
       }
       result.push(route)
-      if (item.list && item.list.length) {
-        result.push(...handleRoutes(item.list))
-      }
+    }
+    if (item.list && item.list.length) {
+      result.push(...handleRoutes(item.list))
     }
   })
   return result

@@ -167,9 +167,7 @@ export default {
       window.location.href = location.origin + '/doc/home/index'
     },
     onCreateDoc() {
-      const path = this.$route.path.replace(/^(\/page\/|\/html\/)/, '')
-      this.id = Number(path) || ''
-      this.id = findDocId(this.menuList, this.$route.path)
+      this.id = findDocId(this.menuList, this.$route.fullPath)
       this.showDialog = true
       sessionStorage.removeItem('cacheHtml')
     },
